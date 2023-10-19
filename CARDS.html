@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .card {
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        margin: 20px;
+    }
+
+    .card img {
+        width: 100%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        /* transition: opacity 0.5s ease-in-out; */
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .card-title {
+        font-size: 24px;
+        margin-top: 0;
+    }
+
+    .card-text {
+        font-size: 16px;
+        color: #666;
+    }
+
+    .card-btn {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .card-btn:hover {
+        background-color: #0069d9;
+    }
+</style>
+
+<body>
+    <div class="card">
+        <img id="card-img" src="https://source.unsplash.com/500x500/?music,bands" alt="Card Image">
+        <div class="card-body">
+            <h3 class="card-title">Card Title</h3>
+            <p class="card-text">This is a sample card created using HTML, CSS, and JS.</p>
+            <button class="card-btn">Read More</button>
+        </div>
+    </div>
+
+</body>
+<script>
+    const cardBtn = document.querySelector('.card-btn');
+    cardBtn.addEventListener('click', function () {
+        alert('You clicked the Read More button!');
+    });
+
+    const imgArray = ["https://source.unsplash.com/500x500/?music,bands", "https://source.unsplash.com/500x500/?concert", "https://source.unsplash.com/500x500/?guitar"];
+    const img = document.getElementById("card-img");
+    let i = 0;
+    setInterval(function () {
+        setTimeout(function () {
+            img.src = imgArray[i];
+            i++;
+            if (i == imgArray.length) {
+                i = 0;
+            }
+            img.style.transition = '1s';
+        });
+    }, 5000);
+</script>
+
+</html>
